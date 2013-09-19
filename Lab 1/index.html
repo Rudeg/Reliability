@@ -1,9 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>test page</title>
+	<title>Realiability Labs</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="js/evaluator.js"></script>
+	<script type="text/javascript" src="js/blogic.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
-	<header>TEST HEADRER</header>
+	<div id="chart_div"></div>
+
+	<br>
+	<label class="checkbox-inline">
+		<input type="checkbox" name="resources" id="hard" value="hard" onchange="changeResources(this)">Hardware
+	</label>
+	<label class="checkbox-inline">
+		<input type="checkbox" name="resources" id="soft" value="soft" onchange="changeResources(this)">Software
+	</label>
+	<label class="checkbox-inline">
+		<input type="checkbox" name="resources" id="soft-hard" value="soft-hard" onchange="changeResources(this)" checked="checked">Software and Hardware System
+	</label>
+	<select id="usage" onchange="changeUsage()" class="form-control custom-select">
+		<option value="VBSR">VBSR and VR, нормальные условия</option>
+		<option value="VBOR">VBOR and VO, нормальные условия</option>
+		<option value="VBHR">VBSH and VH, нормальные условия</option>
+		<option value="VBOH">VBOH and VOH(full only), нормальные условия</option>
+		<option value="real">VBOR and VO, реальные условия</option>
+		<option value="cycle">VBOR and VO(full only), циклические условия</option>
+	</select>
 </body>
 </html>
