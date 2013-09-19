@@ -3,6 +3,19 @@ google.load("visualization", "1", {packages:["corechart"]});
 
 $(document).ready(function(){
     google.setOnLoadCallback(drawChart(true, true, true));
+
+    $('#lab1').click(function() {
+        $('#lab1-div').css('visibility', 'visible');
+        $('#lab2-div').css('visibility', 'hidden');
+        $(this).addClass('active');
+        $('#lab2').removeClass('active');
+    });
+    $('#lab2').click(function() {
+        $('#lab1-div').css('visibility', 'hidden');
+        $('#lab2-div').css('visibility', 'visible');
+        $(this).addClass('active');
+        $('#lab1').removeClass('active');
+    });
 });
 
 function drawChart(acStatus, pcStatus, kcStatus) {
@@ -97,6 +110,8 @@ function changeUsage() {
 }
 
 function disableCheckboxes() {
+    if($('input#soft-hard').is(':checked') === false)
+      $('input#soft-hard').click();
     $('input#soft').removeAttr('checked');
     $('input#hard').removeAttr('checked');
     $('input#soft').attr('disabled', 'true');

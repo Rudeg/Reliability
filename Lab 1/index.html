@@ -12,25 +12,30 @@
 	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
-	<div id="chart_div"></div>
-
-	<br>
-	<label class="checkbox-inline">
-		<input type="checkbox" name="resources" id="hard" value="hard" onchange="changeResources(this)" checked="checked">Hardware
-	</label>
-	<label class="checkbox-inline">
-		<input type="checkbox" name="resources" id="soft" value="soft" onchange="changeResources(this)" checked="checked">Software
-	</label>
-	<label class="checkbox-inline">
-		<input type="checkbox" name="resources" id="soft-hard" value="soft-hard" onchange="changeResources(this)" checked="checked">Software and Hardware System
-	</label>
-	<select id="usage" onchange="changeUsage()" class="form-control custom-select">
-		<option value="VBSR">VBSR and VR, нормальные условия</option>
-		<option value="VBOR">VBOR and VO, нормальные условия</option>
-		<option value="VBHR">VBSH and VH, нормальные условия</option>
-		<option value="VBOH">VBOH and VOH(full only), нормальные условия</option>
-		<option value="real">VBOR and VO, реальные условия</option>
-		<option value="cycle">VBOR and VO(full only), циклические условия</option>
-	</select>
+	<ul class="nav nav-tabs">
+	  <li id="lab1" class="active"><a href="#">Lab1</a></li>
+	  <li id="lab2"><a href="#">Lab2</a></li>
+	</ul>
+	<div id="lab1-div">
+		<div id="chart_div"></div>
+		<br>
+		<label class="checkbox-inline">
+			<input type="checkbox" name="resources" id="hard" value="hard" onchange="changeResources(this)" checked="checked">Hardware
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" name="resources" id="soft" value="soft" onchange="changeResources(this)" checked="checked">Software
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" name="resources" id="soft-hard" value="soft-hard" onchange="changeResources(this)" checked="checked">Software and Hardware System
+		</label>
+		<select id="usage" onchange="changeUsage()" class="form-control custom-select">
+			<option value="VBSR">VBSR and VR, нормальные условия</option>
+			<option value="VBOR">VBOR and VO, нормальные условия</option>
+			<option value="VBHR">VBSH and VH, нормальные условия</option>
+			<option value="VBOH">VBOH and VOH(full only), нормальные условия</option>
+			<option value="real">VBOR and VO, реальные условия</option>
+			<option value="cycle">VBOR and VO(full only), циклические условия</option>
+		</select>
+	</div>
 </body>
 </html>
