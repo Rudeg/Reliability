@@ -14,7 +14,7 @@ a {
 }
 
 .custom-select2 {
-  width: 300px;
+  width: 250px;
   display: inline;
 }
 
@@ -23,5 +23,5 @@ a {
 }
 
 .select-label {
-  margin-left: 100px;
+  margin-left: 50px;
 }
