@@ -11,11 +11,11 @@ $(document).ready(function(){
         $('#lab2').removeClass('active');
     });
     $('#lab2').click(function() {
-        drawChartLab2(1, $('input[name="optionsRadios"]:checked').val());
         $('#lab1-div').css('display', 'none');
         $('#lab2-div').css('display', 'block');
         $(this).addClass('active');
         $('#lab1').removeClass('active');
+        redrawChart();
     });
 });
 
@@ -68,6 +68,31 @@ function drawChartLab2(task, radioStatus) {
             }
             break;
         }
+        case 2: {
+            if(radioStatus) {
+                data.addColumn('number', 'P(t), без резерв');
+                data.addColumn('number', 'P(t), с общим');
+                data.addColumn('number', 'P(t), с раздельным');
+                data.addColumn('number', 'P(t), с адаптивным МЭ');
+            } else {
+                data.addColumn('number', 'dP(t), с общим');
+                data.addColumn('number', 'dP(t), с раздельным');
+                data.addColumn('number', 'dP(t), c адаптивным МЭ');
+            }
+            break;
+        }
+        case 3: {
+            if(radioStatus) {
+                data.addColumn('number', 'P(t), без резерв');
+                data.addColumn('number', 'Pсnr(t), при нагруженом');
+                data.addColumn('number', 'Pcop(t), при облегченном');
+                data.addColumn('number', 'Pcnnr(t), при ненагруженном');
+            } else {
+                data.addColumn('number', 'P(t), без резерв');
+                data.addColumn('number', 'Pccp(t), при скользящем');
+            }
+            break;
+        }
     }
 
     for(var i = 0; i < ARR_SIZE; i++) {
@@ -85,7 +110,6 @@ function drawChartLab2(task, radioStatus) {
     var chart = new google.visualization.LineChart(document.getElementById('lab2-chartdiv'));
     chart.draw(data, options);
 }
-
 
 
 // Lab 1
@@ -149,11 +173,6 @@ function changeUsage() {
     }
 }
 
-//Lab 2
-function changeTask() {
-
-}
-
 function disableCheckboxes() {
     if($('input#soft-hard').is(':checked') === false)
       $('input#soft-hard').click();
@@ -172,10 +191,48 @@ function reloadChart(status) {
     drawChartLab1(status[0], status[1], status[2]);
 }
 
-//lab2
-function changel2Radio() {
+//Lab 2
+function redrawChart() {
     var value = ($('input[name="optionsRadios"]:checked').val() == 'true');
-    calcTask1(value);
-    createLab2DataArray(1);
-    drawChartLab2(1, value)
+    var m = parseInt($('select#mvalue').val());
+    var task = parseInt($('select#task').val());
+    uiFieldChanges(task);
+    calcTaskByValue(task, m, value);
+    createLab2DataArray(task, value);
+    drawChartLab2(task, value);
 }
+
+function calcTaskByValue(task, m, value) {
+    switch(task) {
+        case 1:
+            calcTask1(value, m);
+            break;
+        case 2:
+            calcTask2(value, m);
+            break;
+        case 3:
+            calcTask3(value, m);
+            break;
+    }
+}
+
+function uiFieldChanges(task) {
+    switch(task) {
+        case 1:
+            $('label[for="radio1"]').text('P(t)');
+            $('label[for="radio2"]').text('dP(t)');
+            $('select#mvalue').removeAttr('disabled');
+            break;
+        case 2:
+            $('label[for="radio1"]').text('P(t)');
+            $('label[for="radio2"]').text('dP(t)');
+            $('select#mvalue').val('1');
+            $('select#mvalue').attr('disabled', 'disabled');
+            break;
+        case 3:
+            $('label[for="radio1"]').text('СNR, COR, CNNR');
+            $('label[for="radio2"]').text('CCP');
+            $('select#mvalue').removeAttr('disabled');
+            break;
+    }    
+} 
