@@ -8,9 +8,9 @@ a {
 }
 
 .custom-select {
-  width: 400px;
+  width: 250px;
   display: inline;
-  margin-left: 400px;
+  margin-left: 300px;
 }
 
 .custom-select2 {
@@ -23,5 +23,6 @@ a {
 }
 
 .select-label {
-  margin-left: 50px;
+  margin-left: 45px;
+  margin-top: 10px;
 }
