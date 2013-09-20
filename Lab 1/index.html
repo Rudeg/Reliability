@@ -41,15 +41,17 @@
 	</div>
 	<div id="lab2-div">
 		<div id="lab2-chartdiv"></div>
-		<label class="radio-inline">
-		    <input type="radio" name="optionsRadios" id="radio1" value="true" onchange="changel2Radio()" checked="checked">
-	    	P(t)
+		<label for="radio1" class="radio-inline">
+		    	P(t)
 	    </label>
-		<label class="radio-inline">
-		    <input type="radio" name="optionsRadios" id="radio2" onchange="changel2Radio()" value="false">
-			d(t)
+		    <input type="radio" name="optionsRadios" id="radio1" value="true" onchange="redrawChart()" checked="checked">
+	
+		<label for="radio2" class="radio-inline">
+			dP(t)
 		</label>
-		<select id="mvalue" onchange="changeMValue()" class="form-control custom-select2">
+		    <input type="radio" name="optionsRadios" id="radio2" onchange="redrawChart()" value="false">
+		
+		<select id="mvalue" onchange="redrawChart()" class="form-control custom-select2">
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
@@ -61,10 +63,10 @@
 			<option value="9">9</option>
 			<option value="10">10</option>
 		</select>
-		<select id="task" onchange="changeTask()" class="form-control custom-select2">
-			<option value="task1">Task 1</option>
-			<option value="task2">Task 2</option>
-			<option value="task3">Task 3</option>
+		<select id="task" onchange="redrawChart()" class="form-control custom-select2">
+			<option value="1">Task 1</option>
+			<option value="2">Task 2</option>
+			<option value="3">Task 3</option>
 		</select>
 </body>
 </html>

@@ -17,7 +17,6 @@ calcTask1(true);
 createLab2DataArray(1);
 
 function calcTask1(status, m) {
-    //m = $('select#mvalue').val();
     if(m == undefined)
         m = 1;
     for (var i = 0; i < maxN; ++i) {
@@ -51,8 +50,9 @@ function calcTask2(status) {
     }
 }
 
-function calcTask3(status) {
-    m = $('select#mvalue').val();
+function calcTask3(status, m) {
+    if(m == undefined)
+        m = 1;
     for(var i = 0; i < maxN; ++i) {
         t[i] = i;
         if(status) {
@@ -68,7 +68,7 @@ function calcTask3(status) {
     }
 }
 
-function createLab2DataArray(taskNumb) {
+function createLab2DataArray(taskNumb, value) {
     dataArrayLab2 = [];
     for(var i = 0; i < ARR_SIZE; i++) {
         var item = [];
@@ -78,11 +78,17 @@ function createLab2DataArray(taskNumb) {
                 item.push(pn[i], pro[i], prr[i]);
                 break;
             case 2: { 
-
+                if(value)
+                    item.push(pn[i], pmo[i], pmr[i], pma[i]);
+                else 
+                    item.push(pn[i], pmo[i], pmr[i]);
                 break;
             }
             case 3: {
-                
+                if(value)
+                    item.push(pn[i], pmo[i], pmr[i], pma[i]);
+                else 
+                    item.push(pn[i], pmo[i]);
                 break;
             }
         }
