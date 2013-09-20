@@ -12,3 +12,13 @@ a {
     display: inline;
     margin-left: 400px;
 }
+
+.custom-select2 {
+    width: 300px;
+    display: inline;
+    margin-left: 100px;
+}
+
+#lab2-div {
+	display: none;
+}

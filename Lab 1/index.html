@@ -8,7 +8,9 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript" src="js/evaluator.js"></script>
+	<script type="text/javascript" src="js/evaluator-lab2.js"></script>
 	<script type="text/javascript" src="js/blogic.js"></script>
+	<script type="text/javascript" src="js/blogic-lab2.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
@@ -17,7 +19,7 @@
 	  <li id="lab2"><a href="#">Lab2</a></li>
 	</ul>
 	<div id="lab1-div">
-		<div id="chart_div"></div>
+		<div id="lab1-chartdiv"></div>
 		<br>
 		<label class="checkbox-inline">
 			<input type="checkbox" name="resources" id="hard" value="hard" onchange="changeResources(this)" checked="checked">Hardware
@@ -37,5 +39,32 @@
 			<option value="cycle">VBOR and VO(full only), циклические условия</option>
 		</select>
 	</div>
+	<div id="lab2-div">
+		<div id="lab2-chartdiv"></div>
+		<label class="radio-inline">
+		    <input type="radio" name="optionsRadios" id="radio1" value="true" onchange="changel2Radio()" checked="checked">
+	    	P(t)
+	    </label>
+		<label class="radio-inline">
+		    <input type="radio" name="optionsRadios" id="radio2" onchange="changel2Radio()" value="false">
+			d(t)
+		</label>
+		<select id="mvalue" onchange="changeMValue()" class="form-control custom-select2">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select>
+		<select id="task" onchange="changeTask()" class="form-control custom-select2">
+			<option value="task1">Task 1</option>
+			<option value="task2">Task 2</option>
+			<option value="task3">Task 3</option>
+		</select>
 </body>
 </html>
