@@ -41,16 +41,13 @@
 	</div>
 	<div id="lab2-div">
 		<div id="lab2-chartdiv"></div>
-		<label for="radio1" class="radio-inline">
-		    	P(t)
-	    </label>
-		    <input type="radio" name="optionsRadios" id="radio1" value="true" onchange="redrawChart()" checked="checked">
-	
-		<label for="radio2" class="radio-inline">
-			dP(t)
-		</label>
-		    <input type="radio" name="optionsRadios" id="radio2" onchange="redrawChart()" value="false">
+		<label for="radio1" class="radio-inline">P(t)</label>
+	    <input type="radio" name="optionsRadios" id="radio1" value="true" onchange="redrawChart()" checked="checked">
+
+		<label for="radio2" class="radio-inline">dP(t)</label>
+	    <input type="radio" name="optionsRadios" id="radio2" onchange="redrawChart()" value="false">
 		
+		<label for="mvalue" class="radio-inline select-label">M:</label>
 		<select id="mvalue" onchange="redrawChart()" class="form-control custom-select2">
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -63,6 +60,7 @@
 			<option value="9">9</option>
 			<option value="10">10</option>
 		</select>
+		<label for="task" class="radio-inline select-label">Task:</label>
 		<select id="task" onchange="redrawChart()" class="form-control custom-select2">
 			<option value="1">Task 1</option>
 			<option value="2">Task 2</option>

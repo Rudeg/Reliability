@@ -8,17 +8,20 @@ a {
 }
 
 .custom-select {
-    width: 400px;
-    display: inline;
-    margin-left: 400px;
+  width: 400px;
+  display: inline;
+  margin-left: 400px;
 }
 
 .custom-select2 {
-    width: 300px;
-    display: inline;
-    margin-left: 200px;
+  width: 300px;
+  display: inline;
 }
 
 #lab2-div {
-	display: none;
+  display: none;
+}
+
+.select-label {
+  margin-left: 100px;
 }

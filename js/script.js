@@ -45,7 +45,7 @@ function drawChartLab1(acStatus, pcStatus, kcStatus) {
     var options = {
         title: 'Reliability. Lab 1',
         height: 400,
-        width: 1400
+        width: 1200
     };
 
     var chart = new google.visualization.LineChart(document.getElementById('lab1-chartdiv'));
@@ -104,7 +104,7 @@ function drawChartLab2(task, radioStatus) {
     var options = {
         title: 'Reliability. Lab 2',
         height: 400,
-        width: 1400
+        width: 1200
     };
 
     var chart = new google.visualization.LineChart(document.getElementById('lab2-chartdiv'));
