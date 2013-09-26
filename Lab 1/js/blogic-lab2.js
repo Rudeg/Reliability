@@ -56,14 +56,15 @@ function calcTask3(status, m) {
     for(var i = 0; i < maxN; ++i) {
         t[i] = i;
         if(status) {
-            pn[i] = parseFloat(P_nerez(t[i]));
-            pmo[i] = parseFloat(P_ssr(t[i], m));
-            pmr[i] = pma[i] = 0;
-        } else {
-            pn[i] = parseFloat(P_nerez(t[i]));
+ 	    pn[i] = parseFloat(P_nerez(t[i]));
             pmo[i] = parseFloat(P_snr(t[i], m));
             pmr[i] = parseFloat(P_sor(t[i], m));
             pma[i] = parseFloat(P_snnr(t[i], m));
+        } else {
+            pn[i] = parseFloat(P_nerez(t[i]));
+            pmo[i] = parseFloat(P_ssr(t[i], m));
+            pmr[i] = pma[i] = 0;
+           
         }
     }
 }
