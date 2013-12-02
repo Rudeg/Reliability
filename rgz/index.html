@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Realiability Labs</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="js/modeling.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+	<div class="right-column">
+		<div id="firstChart"></div>
+		<div id="secondChart"></div>
+	</div>
+	<div class="left-column">
+		<div class="model-input">
+			<label for="k">k:</label>
+			<input type="text" name="k" class="form-control"/>
+			<label for="Lel">Lel:</label>
+			<input type="text" name="Lel" class="form-control"/>
+			<label for="Lm">Lm:</label>
+			<input type="text" name="Lm" class="form-control"/>
+			<label for="Ndop">Ndop:</label>
+			<input type="text" name="Ndop" class="form-control"/>
+			<label for="R">R:</label>
+			<input type="text" name="R" class="form-control"/>
+			<label for="dT">dT:</label>
+			<input type="text" name="dT" class="form-control"/>
+			<label for="dTexp">dTexp:</label>
+			<input type="text" name="dTexp" class="form-control"/>
+			<label for="Tn">Tn:</label>
+			<input type="text" name="Tn" class="form-control"/>
+			<label for="Interval">Interval:</label>
+			<input type="text" name="Interval" class="form-control"/>
+			<div class="radio">
+ 				<label>
+    				<input type="radio" name="optionsRadios" value="MK_OK" checked>MK_OK
+  				</label>
+			</div>
+			<div class="radio">
+			  <label>
+			    <input type="radio" name="optionsRadios"  value="OK_MK">OK_MK
+			  </label>
+			</div>
+			<button name="one" class="btn btn-primary" onclick="one()">Расчитать один случай</button>
+			<button name="1k" class="btn btn-primary" onclick="1k()">Расчитать 1000</button>
+		</div>
+		<div class="healthy-data">
+		</div>
+	</div>
+</body>
+</html>
