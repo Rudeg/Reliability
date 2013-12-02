@@ -1,0 +1,27 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.custom-select {
+  width: 400px;
+  display: inline;
+  margin-left: 400px;
+}
+
+.custom-select2 {
+  width: 250px;
+  display: inline;
+}
+
+#lab2-div {
+  display: none;
+}
+
+.select-label {
+  margin-left: 50px;
+}
