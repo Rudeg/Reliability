@@ -61,8 +61,8 @@ function drawSecondChart(ktTrue, ktFalse) {
     
     var options = {
         title: 'Показатели живучести',
-        vAxis: {title: "Tcp.max"},
-        hAxis: {title: "k"},
+        vAxis: {title: "k"},
+        hAxis: {title: "Tcp.max"},
         height: 600,
         width: 1200,
         seriesType: "line"
