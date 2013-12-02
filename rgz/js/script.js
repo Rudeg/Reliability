@@ -52,12 +52,11 @@ function drawSecondChart(ktTrue, ktFalse) {
     data.addColumn('number', '');
     data.addColumn('number', 'MK_OK');
     data.addColumn('number', 'OK_MK');
-    data.addRows(ktTrue.length * 2);
-    for(var i = ktTrue.length- 1, a = 0; i >= 0 ; i--, a++) {
-        data.setValue(a, 0, ktTrue[i][0]);
-        data.setValue(a++, 1, ktTrue[i][1]);
-        data.setValue(a, 0, ktFalse[i][0]);
-        data.setValue(a, 2, ktFalse[i][1]);
+   
+    for(var i = 0; i < ktTrue.length; i++) {
+        data.addRows([
+            [ktTrue.length + 1 - ktTrue[i][1], ktTrue[i][0], ktFalse[i][0]] 
+        ]);     
     }
     
     var options = {
@@ -66,8 +65,7 @@ function drawSecondChart(ktTrue, ktFalse) {
         hAxis: {title: "k"},
         height: 600,
         width: 1200,
-        seriesType: "line",
-        interpolateNulls: true
+        seriesType: "line"
     };
 
     var chart = new google.visualization.ComboChart(document.getElementById('secondChart'));
@@ -80,14 +78,14 @@ function survivability() {
     resultsTextbox.value = '';
     var ktTrue = CalculateKT(true);
     resultsTextbox.value += 'MK_OK\n';
-    for(var i = 0; i < ktTrue.length; i++) {
+    for(var i = ktTrue.length -1; i >= 0; i--) {
         resultsTextbox.value += 'k = ' + ktTrue[i][1].toString() + ' t = ' + ktTrue[i][0].toString() + '\n';
     }
     var ktFalse = CalculateKT(false);
 
     resultsTextbox.value += '\nOK_MK\n';
-    for(var i = 0; i < ktTrue.length; i++) {
-        resultsTextbox.value += 'k = ' + ktTrue[i][1].toString() + ' t = ' + ktTrue[i][0].toString() + '\n';
+    for(var i = ktFalse.length -1; i >= 0; i--) {
+        resultsTextbox.value += 'k = ' + ktFalse[i][1].toString() + ' t = ' + ktFalse[i][0].toString() + '\n';
     }
     drawSecondChart(ktTrue, ktFalse);
 }
