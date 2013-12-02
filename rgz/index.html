@@ -18,37 +18,42 @@
 	<div class="left-column">
 		<div class="model-input">
 			<label for="k">k:</label>
-			<input type="text" name="k" class="form-control"/>
+			<input type="text" name="k" class="form-control" value="2" />
 			<label for="Lel">Lel:</label>
-			<input type="text" name="Lel" class="form-control"/>
+			<input type="text" name="Lel" class="form-control" value="3" />
 			<label for="Lm">Lm:</label>
-			<input type="text" name="Lm" class="form-control"/>
+			<input type="text" name="Lm" class="form-control" value="0.1" />
 			<label for="Ndop">Ndop:</label>
-			<input type="text" name="Ndop" class="form-control"/>
+			<input type="text" name="Ndop" class="form-control" value="8.5" />
 			<label for="R">R:</label>
-			<input type="text" name="R" class="form-control"/>
+			<input type="text" name="R" class="form-control" value="3" />
 			<label for="dT">dT:</label>
-			<input type="text" name="dT" class="form-control"/>
+			<input type="text" name="dT" class="form-control" value="5" />
 			<label for="dTexp">dTexp:</label>
-			<input type="text" name="dTexp" class="form-control"/>
+			<input type="text" name="dTexp" class="form-control" value="100" />
 			<label for="Tn">Tn:</label>
-			<input type="text" name="Tn" class="form-control"/>
+			<input type="text" name="Tn" class="form-control" value="3" />
 			<label for="Interval">Interval:</label>
-			<input type="text" name="Interval" class="form-control"/>
+			<input type="text" name="Interval" class="form-control" value="100" />
 			<div class="radio">
  				<label>
-    				<input type="radio" name="optionsRadios" value="MK_OK" checked>MK_OK
+    				<input type="radio" name="model-radio" value="MK_OK" checked>MK_OK
   				</label>
 			</div>
 			<div class="radio">
 			  <label>
-			    <input type="radio" name="optionsRadios"  value="OK_MK">OK_MK
+			    <input type="radio" name="model-radio"  value="OK_MK">OK_MK
 			  </label>
 			</div>
 			<button name="one" class="btn btn-primary" onclick="one()">Расчитать один случай</button>
-			<button name="1k" class="btn btn-primary" onclick="1k()">Расчитать 1000</button>
+			<button name="1k" class="btn btn-primary" onclick="oneThousand()">Расчитать 1000</button>
 		</div>
-		<div class="healthy-data">
+		<div class="survivability-data">
+			<button name="survivability" class="btn btn-primary" onclick="survivability()">Расчитать живучесть</button>
+			<p>
+				<label for="results">Results:</label>
+				<textarea name="results" class="form-control" disabled="disabled"></textarea>
+			</p>
 		</div>
 	</div>
 </body>

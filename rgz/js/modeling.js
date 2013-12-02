@@ -1,38 +1,24 @@
 
 //Random r = new Random();
-var k = 2, Lel, Lm, Ndop, R, dT, dTexp, Tn, Interval;
+var k, Lel, Lm, Ndop, R, dT, dTexp, Tn, Interval;
 var Elements = [];
 var rec1000 = [];
 var PractProb = [];
 var TeorProb = [];
 
-//function init(k, Lel, Lm, Ndop, R, dT, dTexp, Tn, Interval) {
-function init() {
-    /*k = k;
-    Lel = Lel;
-    Lm = Lm;
-    Ndop = Ndop;
-    R = R;
-    dT = dT;
-    dTexp = dTexp;
-    Tn = Tn;
-    Interval = Interval; 
-*/
-    k = 2;
-    Lel = 0.000030000000000000004;
-    Lm = 0.00001;
-    Ndop = 85000;
-    R = 3;
-    dT = 500;
-    dTexp = 100;
-    Tn = 300;
-    Interval = 100;
-    console.log('ok');
-
+function init(k1, Lel1, Lm1, Ndop1, R1, dT1, dTexp1, Tn1, Interval1) {
+    k = k1;
+    Lel = Lel1;
+    Lm = Lm1;
+    Ndop = Ndop1;
+    R = R1;
+    dT = dT1;
+    dTexp = dTexp1;
+    Tn = Tn1;
+    Interval = Interval1; 
 }
-//100
-function CalculateProbability(algoritm) {
 
+function CalculateProbability(algoritm) {
     PractProb = [];
     var time = 0;
     var proba = 1.0;
@@ -51,7 +37,6 @@ function CalculateProbability(algoritm) {
     }
     while (proba != 0.0) {
         var probaEl = 1.0;
-
         var Pel = Math.exp((-1) * time * Lel);
         var Pm = Math.exp((-1) * time * Lm);
         if ((time > Tn && time <= (Tn + dTexp)) || (time > Tn2 && time <= (Tn2 + dTexp))) {
@@ -64,23 +49,20 @@ function CalculateProbability(algoritm) {
                 if (recN1 > Ndop) {
                     proba = 0.0;
                 }
-            }
-            else {
+            } else {
                 recN1 = OK_MK();
                 if (recN1 > Ndop) {
                     proba = 0.0;
                 }
             }
             rekonfig1 = false;
-        }
-        else if (((Tn2 + dTexp) < time && rekonfig2)) {
+        } else if (((Tn2 + dTexp) < time && rekonfig2)) {
             if (algoritm) {
                 recN2 = MK_OK();
                 if (recN2 > Ndop) {
                     proba = 0.0;
                 }
-            }
-            else {
+            } else {
                 recN2 = OK_MK();
                 if (recN2 > Ndop)
                 {
@@ -89,33 +71,24 @@ function CalculateProbability(algoritm) {
             }
             rekonfig2 = false;
         }
-
-        for (var i = 0; i < k; i++)
-        {
-            /////////////////////////////////
+        for (var i = 0; i < k; i++) {
             var rTmp = Math.random();
-            if (rTmp > Pel)
-            {
+            if (rTmp > Pel) {
                 Elements[i][0] = false;
             }
             rTmp = Math.random();
-            if (rTmp > Pel)
-            {
+            if (rTmp > Pel) {
                 Elements[i][1] = false;
             }
             rTmp = Math.random();
-            if (rTmp > Pel)
-            {
+            if (rTmp > Pel) {
                 Elements[i][2] = false;
             }
             rTmp = Math.random();
-            if (rTmp > Pm)
-            {
+            if (rTmp > Pm) {
                 Elements[i][3] = false;
             }
-            //////////////////////////////////////
-            if (Elements[i][0] && Elements[i][1] && Elements[i][2] && Elements[i][3])
-            {
+            if (Elements[i][0] && Elements[i][1] && Elements[i][2] && Elements[i][3]) {
                 probaEl = (3 * Pel * Pel - 2 * Pel * Pel * Pel) * Pm;
             }
             else if (((Elements[i][0] && Elements[i][1]) || (Elements[i][1] && Elements[i][2]) || (Elements[i][0] && Elements[i][2])) && Elements[i][3]) {
@@ -141,20 +114,16 @@ function MK_OK() {
     var sost = 0;
     for(var i = k - 1; i >= 0; i--) {
         var C = 0;
-        if (!Elements[i][3])
-        {
+        if (!Elements[i][3]) {
             C = 1;
         }
-        else if (Elements[i][0] && !Elements[i][1] && !Elements[i][2])//A
-        {
+        else if (Elements[i][0] && !Elements[i][1] && !Elements[i][2]) { //A
             C = 2;
         }
-        else if (!Elements[i][0] && Elements[i][1] && !Elements[i][2])//B
-        {
+        else if (!Elements[i][0] && Elements[i][1] && !Elements[i][2]) { //B
             C = 3;
         }
-        else if (!Elements[i][0] && !Elements[i][1] && Elements[i][2])//C
-        {
+        else if (!Elements[i][0] && !Elements[i][1] && Elements[i][2]) { //C
             C = 4;
         }
         sost += C * Math.pow(4, i);
@@ -167,16 +136,13 @@ function OK_MK() {
     var sost = 0;
     for (var i = k - 1; i >= 0; i--) {
         var C = 0;
-        if (Elements[i][0])//A
-        {
+        if (Elements[i][0]) { //A
             C = 0;
         }
-        else if (Elements[i][1])//B
-        {
+        else if (Elements[i][1]) { //B
             C = 1;
         }
-        else if (Elements[i][2])//C
-        {
+        else if (Elements[i][2]) { //C
             C = 2;
         }
         sost += C * (Math.pow(3, i) + i);
@@ -193,8 +159,7 @@ function CalculateProbability1000(algoritm) {
         var tmpresult = CalculateProbability(algoritm);
         var l1 = tmpresult.length;
         var l2 = result2.length;
-        
-        for (var j = 0; j < l1; j++){
+        for (var j = 0; j < l1; j++) {
             if (j > l2 - 1) {
                 result2.push(tmpresult[j]);
             }
@@ -226,8 +191,7 @@ function TeoreticProbability() {
         time += Interval;
     }
     return TeorProb;
-}
-      
+}   
    
 function CalculateKT(algoritm) {
     var result = [];
