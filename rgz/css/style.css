@@ -22,8 +22,11 @@ a {
 }
 .model-input input {
   display: inline-block;
-  width: 70%;
+  width: 50%;
   margin-bottom: 5px;
+}
+.model-input span {
+  width: 20%;
 }
 .model-input input[type=radio] {
   width: 10% !important;
